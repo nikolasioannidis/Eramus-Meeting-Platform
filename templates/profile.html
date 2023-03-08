@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block main %}
+<form method="post" action="/profile">
+  <div>
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name">
+
+  <label for="last">Last Name:</label>
+  <input type="text" id="last" name="last">
+
+  <label for="country">Country:</label>
+  <input type="text" id="country" name="country">
+  <br>
+
+  <label for="city">City:</label>
+  <input type="text" id="city" name="city">
+
+  <label for="university">University:</label>
+  <input type="text" id="university" name="university">
+
+  <label for="department">Department:</label>
+  <input type="text" id="department" name="department">
+
+  <br>
+
+  <label for="email">Email:</label>
+  <input type="text" id="email" name="email">
+
+  <select name="season" id="season">
+  <option value="none" selected disabled hidden>Season</option>
+  <option value="winter">Winter</option>
+  <option value="summer">Summer</option>
+  </select>
+
+  <select name="preference" id="preference">
+  <option value="none" selected disabled hidden>Preference</option>
+  <option value=" extrovert">Extrovert</option>
+  <option value="introvert">Introvert</option>
+  </select>
+
+  <br>
+  <br>
+
+</div>
+  <button style="background-color:rgba(104, 93, 165, 0.795);border-color:rgba(104, 93, 165, 0.795) ;">Save</button>
+  <div class="header">
+  </div>
+
+  <br>
+  <br>
+
+    <h1>My Informations</h1>
+  <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Country</th>
+            <th scope="col">City</th>
+            <th scope="col">University</th>
+            <th scope="col">Season</th>
+            <th scope="col">Preference</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- TODO: Loop through the database entries to display them in this table -->
+        {% for info in user_info %}
+        <tr>
+          <td>{{info.country}}</td>
+          <td>{{info.city}}</td>
+          <td>{{info.uni}}</td>
+          <td>{{info.season}}</td>
+          <td>{{info.preference}}</td>
+        </tr>
+        {% endfor %}
+    </tbody> 
+    <br>
+</form>
+{% endblock %}
